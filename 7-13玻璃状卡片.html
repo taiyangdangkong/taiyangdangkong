@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .card{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .card span{
+            position: absolute;
+            top: 0;
+            width: 250px;
+            height: 250px;
+            display: block;
+            background-color: #000;
+            border-radius: 50%;
+            transform-origin: 125px 0;
+            transform: rotate(calc(90deg*var(--i)));
+            /* 高斯模糊 */
+            filter: blur(80px);
+            opacity: 0.75;
+            
+        }
+        .card span:nth-child(1){
+            background-color: #f1c40f;
+        }
+        .card span:nth-child(2){
+            background-color: #3498db;
+        }
+        .card span:nth-child(3){
+            background-color: #2ecc71;
+        }
+        .card span:nth-child(4){
+            background-color: #9b59b6;
+        }
+        .card .glass{
+            position: absolute;
+            width: 450px;
+            height: 300px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            border: 1px solid #fff;
+            overflow: hidden;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-end;
+        }
+        .card .glass::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.2);
+            pointer-events: none;
+            transform: skewX(345deg);
+        }
+        .card .glass h2{
+            padding: 20px;
+            font-weight: 400;
+            font-style: italic;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #333;
+            text-align: end;
+        }
+        .card .glass h2 i{
+            font-weight: 300;
+            font-size: 0.75em;
+            font-style: normal;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="card">
+        <span style="--i:0"></span>
+        <span style="--i:1"></span>
+        <span style="--i:2"></span>
+        <span style="--i:3"></span>
+        <div class="glass">
+            <h2>Hello World
+                <br>
+                <i>+1234567890</i>
+            </h2>
+        </div>
+    </div>
+</body>
+</html>
